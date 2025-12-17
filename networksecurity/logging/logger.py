@@ -14,3 +14,14 @@ logging.basicConfig(
   format='[%(asctime)s] %(lineo)d %(name)s - %(levelname)s - %(message)s ',
   level = logging.INFO,
 )
+
+'''
+Let’s decode:
+
+Token	Meaning
+%(asctime)s	The date and time of the log event
+%(lineo)d	❌ Typo — should be %(lineno)d (line number in code)
+%(name)s	Name of the logger (often root if not customized)
+%(levelname)s	Log level — e.g. INFO, WARNING, ERROR
+%(message)s	The actual log message you log using logging.info() or logging.error()
+'''

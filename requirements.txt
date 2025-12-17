@@ -3,5 +3,8 @@ python-dotenv
 numpy
 pymongo
 certifi
+pymongo[srv]
+dotenv
+
 
 #-e .
