@@ -1,14 +1,23 @@
 import sys
-from networksecurity.logging import logger
+
 class NetworkSecurityException(Exception):
-  def __inti__(self, error_message, error_details:sys):
-    self.error_message  =error_message
-    _,_,exc_tb = error_details.exc_info()
-    
-    self.lineno = exc_tb.tb_lineno
-    self.file_name = exc_tb.tb_frame.f_code.co_filename
-    
-  def __str__(self):
-    return "Error occured in python script name [{0}] line number [{1}] error message"
-    self.file_name, self.lineno, str(self.error_message)
-    
+    def __init__(self, error_message: Exception, error_detail: sys):
+        super().__init__(error_message)
+        self.error_message = self.get_detailed_error_message(
+            error_message, error_detail
+        )
+
+    @staticmethod
+    def get_detailed_error_message(error_message: Exception, error_detail: sys):
+        _, _, exc_tb = error_detail.exc_info()
+        file_name = exc_tb.tb_frame.f_code.co_filename
+        line_number = exc_tb.tb_lineno
+
+        return (
+            f"Error occured in python script name [{file_name}] "
+            f"line number [{line_number}] "
+            f"error message [{error_message}]"
+        )
+
+    def __str__(self):
+        return self.error_message

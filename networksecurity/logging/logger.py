@@ -2,18 +2,23 @@ import logging
 import os
 from datetime import datetime
 
-LOG_FILE=f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
+LOG_DIR = "logs"
+LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 
-logs_path = os.path.join(os.getcwd(), "logs", LOG_FILE)
-os.makedirs(logs_path, exist_ok = True)
+os.makedirs(LOG_DIR, exist_ok=True)
 
-LOG_FILE_PATH = os.path.join(logs_path, LOG_FILE)
+LOG_FILE_PATH = os.path.join(LOG_DIR, LOG_FILE)
+
+LOG_FORMAT = "[%(asctime)s] %(levelname)s [%(filename)s:%(lineno)d] %(message)s"
 
 logging.basicConfig(
-  filename= LOG_FILE_PATH,
-  format='[%(asctime)s] %(lineo)d %(name)s - %(levelname)s - %(message)s ',
-  level = logging.INFO,
+    filename=LOG_FILE_PATH,
+    format=LOG_FORMAT,
+    level=logging.INFO
 )
+
+logging.info("Logging initialized successfully")
+
 
 '''
 Let’s decode:

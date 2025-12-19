@@ -1,3 +1,4 @@
+'''
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
@@ -12,3 +13,31 @@ try:
     print("Pinged your deployment. You successfully connected to MongoDB!")
 except Exception as e:
     print(e)
+    '''
+    
+import pymongo
+import certifi
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+try:
+    client = pymongo.MongoClient(
+        os.getenv("MONGO_DB_URL"),
+        tlsCAFile=certifi.where(),
+        serverSelectionTimeoutMS=30000
+    )
+    
+    client.admin.command('ping')
+    print("✅ MongoDB connection successful!")
+    
+    db = client["aviral0012"]
+    collection = db["NetworkData"]
+    count = collection.count_documents({})
+    print(f"✅ Found {count} documents in collection")
+    
+    client.close()
+    
+except Exception as e:
+    print(f"❌ Connection failed: {e}")
