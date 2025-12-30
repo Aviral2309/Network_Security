@@ -14,11 +14,19 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+'''
+This file implements a data ingestion pipeline that securely
+reads data from MongoDB, stores it in a feature store, splits it into 
+training and testing datasets, and returns ingestion artifacts using a
+configuration-driven and production-ready design.
+'''
+
 MONGO_DB_URL = os.getenv("MONGO_DB_URL")
 
 
 class DataIngestion:
     def __init__(self, data_ingestion_config: DataIngestionConfig):
+        #Makes the pipeline config-driven
         try:
             self.data_ingestion_config = data_ingestion_config
         except Exception as e:
