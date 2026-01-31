@@ -1,0 +1,40 @@
+[2026-01-31 18:22:00,228] INFO [logger.py:20] Logging initialized successfully
+[2026-01-31 18:22:27,568] INFO [_client.py:1025] HTTP Request: POST https://dagshub.com/login/oauth/middleman "HTTP/1.1 200 OK"
+[2026-01-31 18:22:29,334] INFO [_client.py:1025] HTTP Request: POST https://dagshub.com/login/oauth/access_token "HTTP/1.1 200 OK"
+[2026-01-31 18:22:30,401] INFO [_client.py:1025] HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2026-01-31 18:22:30,417] INFO [helpers.py:107] Accessing as aviralmittal0012
+[2026-01-31 18:22:31,958] INFO [_client.py:1025] HTTP Request: GET https://dagshub.com/api/v1/repos/aviralmittal0012/Network_Security "HTTP/1.1 200 OK"
+[2026-01-31 18:22:33,106] INFO [_client.py:1025] HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2026-01-31 18:22:33,106] INFO [helpers.py:107] Initialized MLflow to track repo "aviralmittal0012/Network_Security"
+[2026-01-31 18:22:33,122] INFO [helpers.py:107] Repository aviralmittal0012/Network_Security initialized!
+[2026-01-31 18:22:33,122] INFO [main.py:20] Starting training pipeline
+[2026-01-31 18:22:33,122] INFO [main.py:26] Initiating Data Ingestion
+[2026-01-31 18:22:33,122] INFO [data_ingestion.py:38] Reading data from MongoDB
+[2026-01-31 18:22:34,240] INFO [data_ingestion.py:51] MongoDB connection successful
+[2026-01-31 18:22:35,590] INFO [data_ingestion.py:64] MongoDB data successfully converted to DataFrame
+[2026-01-31 18:22:35,667] INFO [data_ingestion.py:79] Feature store file saved
+[2026-01-31 18:22:35,711] INFO [data_ingestion.py:107] Train-test split completed and files saved
+[2026-01-31 18:22:35,711] INFO [main.py:28] Data Initiation Completed
+[2026-01-31 18:22:35,714] INFO [main.py:33] Initiate the data Validation
+[2026-01-31 18:22:35,737] INFO [data_validation.py:32] Required number of columns:2
+[2026-01-31 18:22:35,737] INFO [data_validation.py:33] Data frame has columns:31
+[2026-01-31 18:22:35,737] INFO [data_validation.py:32] Required number of columns:2
+[2026-01-31 18:22:35,737] INFO [data_validation.py:33] Data frame has columns:31
+[2026-01-31 18:22:35,842] INFO [main.py:35] data Validation Completed
+[2026-01-31 18:22:35,842] INFO [main.py:39] data Transformation started
+[2026-01-31 18:22:35,842] INFO [data_transformation.py:63] Entered initiate_data_transformation method of DataTransformation class
+[2026-01-31 18:22:35,842] INFO [data_transformation.py:65] Starting data transformation
+[2026-01-31 18:22:35,868] INFO [data_transformation.py:48] Entered get_data_trnasformer_object method of Trnasformation class
+[2026-01-31 18:22:35,868] INFO [data_transformation.py:53] Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[2026-01-31 18:22:35,894] INFO [utils.py:46] Entered the save_object method of MainUtils class
+[2026-01-31 18:22:35,909] INFO [utils.py:50] Exited the save_object method of MainUtils class
+[2026-01-31 18:22:35,909] INFO [utils.py:46] Entered the save_object method of MainUtils class
+[2026-01-31 18:22:35,912] INFO [utils.py:50] Exited the save_object method of MainUtils class
+[2026-01-31 18:22:35,913] INFO [main.py:43] data Transformation completed
+[2026-01-31 18:22:35,913] INFO [main.py:45] Model Training started
+[2026-01-31 18:32:59,891] INFO [utils.py:46] Entered the save_object method of MainUtils class
+[2026-01-31 18:32:59,898] INFO [utils.py:50] Exited the save_object method of MainUtils class
+[2026-01-31 18:32:59,898] INFO [utils.py:46] Entered the save_object method of MainUtils class
+[2026-01-31 18:32:59,933] INFO [utils.py:50] Exited the save_object method of MainUtils class
+[2026-01-31 18:32:59,933] INFO [model_trainer.py:128] Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\01_31_2026_18_22_02\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.9913696822012387, precision_score=0.9896614636124063, recall_score=0.9930838079739626), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9741138988450816, precision_score=0.962992125984252, recall_score=0.9854955680902499))
+[2026-01-31 18:32:59,939] INFO [main.py:50] Model Training artifact created
